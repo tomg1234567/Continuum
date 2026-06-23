@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continuum — The AI Operating Layer for Startups & Investors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { 50:'#EFF6FF', 100:'#DBEAFE', 500:'#3B82F6', 600:'#2563EB', 700:'#1D4ED8', 900:'#1E3A5F' }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4,0,0.6,1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .gradient-hero { background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37,99,235,0.08) 0%, transparent 70%); }
+    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .metric-card { transition: box-shadow 0.15s ease; }
+    .metric-card:hover { box-shadow: 0 4px 20px rgba(37,99,235,0.08); }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+  <!-- ── NAVIGATION ── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <svg width="34" height="21" viewBox="0 0 34 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 10.5C17 10.5 12.5 2.5 6.5 2.5C3.4 2.5 1 5.5 1 10.5C1 15.5 3.4 18.5 6.5 18.5C12.5 18.5 17 10.5 17 10.5Z" stroke="#1D4ED8" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+          <path d="M17 10.5C17 10.5 21.5 18.5 27.5 18.5C30.6 18.5 33 15.5 33 10.5C33 5.5 30.6 2.5 27.5 2.5C21.5 2.5 17 10.5 17 10.5Z" stroke="#1D4ED8" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <div class="leading-none">
+          <div class="text-[13px] font-black tracking-[0.18em] text-slate-900 uppercase">Continuum</div>
+          <div class="text-[8px] font-semibold tracking-[0.22em] text-slate-400 uppercase mt-0.5">Founder Console</div>
+        </div>
+      </a>
+
+      <!-- Nav links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
+        <a href="#platform" class="hover:text-slate-900 transition-colors">Platform</a>
+        <a href="#for-investors" class="hover:text-slate-900 transition-colors">For Investors</a>
+        <a href="#how-it-works" class="hover:text-slate-900 transition-colors">How it works</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden md:block text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Sign in</a>
+        <a href="#" class="bg-blue-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/20">
+          Request Access
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="pt-28 pb-16 px-6 gradient-hero overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold tracking-wide px-3.5 py-1.5 rounded-full mb-8 uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-500" style="animation: pulse 2s infinite;"></span>
+        Now in Early Access
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-5xl md:text-[68px] font-black tracking-tight text-slate-900 leading-[1.04] mb-6">
+        The AI Operating Layer<br/>
+        <span class="text-blue-600">for the startup ecosystem.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        Continuum is an AI management agent that keeps founders investor-ready at all times — while giving angels, VCs, and family offices their own AI analyst built into every portfolio company.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-16">
+        <a href="https://continuum.masterexp.io/" class="bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 text-sm">
+          Get Early Access →
+        </a>
+        <a href="#" class="bg-white text-slate-700 font-semibold px-8 py-4 rounded-xl hover:bg-slate-50 transition-all border border-slate-200 text-sm">
+          See the Platform
+        </a>
+      </div>
+
+      <!-- ── DASHBOARD MOCK ── -->
+      <div class="relative mx-auto max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-2xl shadow-slate-300/40 border border-slate-100 overflow-hidden">
+
+          <!-- Browser chrome -->
+          <div class="flex items-center gap-3 px-5 py-3 bg-slate-50 border-b border-slate-100">
+            <div class="flex gap-1.5">
+              <div class="w-3 h-3 rounded-full bg-rose-400/80"></div>
+              <div class="w-3 h-3 rounded-full bg-amber-400/80"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-400/80"></div>
+            </div>
+            <div class="flex-1 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-400 text-left max-w-xs mx-auto">
+              continuum.io/console
+            </div>
+          </div>
+
+          <div class="flex">
+            <!-- Sidebar -->
+            <div class="w-52 bg-white border-r border-slate-100 p-4 hidden sm:block flex-shrink-0">
+              <div class="text-[10px] font-semibold tracking-[0.14em] text-slate-400 uppercase mb-2 px-2">Overview</div>
+              <div class="flex items-center gap-2.5 px-2 py-2 bg-blue-50 rounded-lg mb-0.5">
+                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2"/></svg>
+                <span class="text-xs font-semibold text-blue-700">Dashboard</span>
+              </div>
+              <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg mb-0.5">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                <span class="text-xs font-medium text-slate-500">Financial Engine</span>
+              </div>
+              <div class="text-[10px] font-semibold tracking-[0.14em] text-slate-400 uppercase mt-4 mb-2 px-2">Workspaces</div>
+              <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg mb-0.5">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                <span class="text-xs font-medium text-slate-500">Investor Workspace</span>
+              </div>
+              <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg mb-0.5">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span class="text-xs font-medium text-slate-500">Investor Updates</span>
+              </div>
+              <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg mb-0.5">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                <span class="text-xs font-medium text-slate-500">Data Room</span>
+              </div>
+              <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                <span class="text-xs font-medium text-slate-500">Media & Narrative</span>
+              </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="flex-1 p-5 bg-white">
+              <!-- Company header -->
+              <div class="flex items-center justify-between mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <div class="w-10 h-10 rounded-full border-4 border-slate-100 flex items-center justify-center bg-white">
+                      <svg class="w-8 h-8" viewBox="0 0 40 40">
+                        <circle cx="20" cy="20" r="18" fill="none" stroke="#E2E8F0" stroke-width="4"/>
+                        <path d="M20 20 L20 2" stroke="#EF4444" stroke-width="4" stroke-linecap="round" transform="rotate(72 20 20)"/>
+                        <circle cx="20" cy="20" r="3" fill="#0F172A"/>
+                      </svg>
+                    </div>
+                    <div class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-rose-500 rounded-full flex items-center justify-center">
+                      <span class="text-white text-[7px] font-bold">!</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-base font-bold text-slate-900">Acme Corp</div>
+                    <div class="text-xs text-slate-400">SEED STAGE · ENTERPRISE SAAS</div>
+                  </div>
+                </div>
+                <div class="text-xs bg-slate-50 border border-slate-100 rounded-lg px-3 py-1.5 font-medium text-slate-600 cursor-pointer hover:bg-slate-100 transition-colors">
+                  View Full Plan
+                </div>
+              </div>
+
+              <!-- Metric cards -->
+              <div class="grid grid-cols-4 gap-2.5 mb-3">
+                <div class="metric-card bg-white rounded-xl border border-slate-100 p-3 shadow-sm">
+                  <div class="text-[9px] text-slate-400 uppercase tracking-wide mb-2 leading-tight">Annual Recurring Revenue</div>
+                  <div class="text-xl font-bold text-slate-900">$284K</div>
+                  <div class="text-[10px] font-semibold text-emerald-500 mt-0.5">↑ +127% Y2</div>
+                  <svg class="w-full mt-2" height="22" viewBox="0 0 60 22" fill="none" preserveAspectRatio="none">
+                    <polyline points="0,18 12,15 24,11 36,7 48,4 60,1" stroke="#3B82F6" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="metric-card bg-white rounded-xl border border-slate-100 p-3 shadow-sm">
+                  <div class="text-[9px] text-slate-400 uppercase tracking-wide mb-2 leading-tight">Monthly Burn Rate</div>
+                  <div class="text-xl font-bold text-slate-900">$82K</div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Peak: $94K</div>
+                  <svg class="w-full mt-2" height="22" viewBox="0 0 60 22" fill="none" preserveAspectRatio="none">
+                    <polyline points="0,4 12,5 24,8 36,11 48,13 60,11" stroke="#F97316" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="metric-card bg-white rounded-xl border border-slate-100 p-3 shadow-sm">
+                  <div class="text-[9px] text-slate-400 uppercase tracking-wide mb-2 leading-tight">Runway</div>
+                  <div class="text-xl font-bold text-slate-900">14 mo</div>
+                  <div class="mt-0.5"><span class="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">Healthy</span></div>
+                  <svg class="w-full mt-2" height="22" viewBox="0 0 60 22" fill="none" preserveAspectRatio="none">
+                    <polyline points="0,5 12,6 24,8 36,10 48,12 60,15" stroke="#8B5CF6" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="metric-card bg-white rounded-xl border border-slate-100 p-3 shadow-sm">
+                  <div class="text-[9px] text-slate-400 uppercase tracking-wide mb-2 leading-tight">Cash Position</div>
+                  <div class="text-xl font-bold text-slate-900">$1.2M</div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">+$450K raised</div>
+                  <svg class="w-full mt-2" height="22" viewBox="0 0 60 22" fill="none" preserveAspectRatio="none">
+                    <polyline points="0,18 12,14 24,11 36,12 48,9 60,7" stroke="#10B981" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Health breakdown -->
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="text-xs font-semibold text-slate-900">Health Breakdown</div>
+                  <div class="text-[10px] text-slate-400">What's driving your score</div>
+                </div>
+                <div class="grid grid-cols-2 gap-x-6 gap-y-2.5">
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] text-slate-500 w-24">ARR Growth</span>
+                    <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div class="h-full bg-emerald-500 rounded-full" style="width:100%"></div>
+                    </div>
+                    <span class="text-[10px] font-semibold text-emerald-600 w-10 text-right">Strong</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] text-slate-500 w-24">Runway</span>
+                    <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div class="h-full bg-emerald-500 rounded-full" style="width:70%"></div>
+                    </div>
+                    <span class="text-[10px] font-semibold text-emerald-600 w-10 text-right">Good</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] text-slate-500 w-24">Burn Efficiency</span>
+                    <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div class="h-full bg-amber-400 rounded-full" style="width:40%"></div>
+                    </div>
+                    <span class="text-[10px] font-semibold text-amber-600 w-10 text-right">Watch</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] text-slate-500 w-24">Cash Position</span>
+                    <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div class="h-full bg-emerald-500 rounded-full" style="width:85%"></div>
+                    </div>
+                    <span class="text-[10px] font-semibold text-emerald-600 w-10 text-right">Strong</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="absolute -left-10 top-20 bg-white rounded-2xl shadow-xl border border-slate-100 p-4 hidden lg:block w-44">
+          <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wide mb-1">AI Insight</div>
+          <div class="text-xs font-semibold text-slate-900 leading-snug">"Burn multiple is high. Consider deferring 2 hires."</div>
+          <div class="mt-2 flex items-center gap-1.5">
+            <div class="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <span class="text-[10px] text-slate-400">Continuum AI</span>
+          </div>
+        </div>
+
+        <div class="absolute -right-10 bottom-20 bg-white rounded-2xl shadow-xl border border-slate-100 p-4 hidden lg:block w-44">
+          <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wide mb-1">Investor View</div>
+          <div class="text-xs font-semibold text-slate-900 mb-2">Next update due</div>
+          <div class="text-sm font-bold text-blue-600">3 days</div>
+          <div class="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
+            <div class="bg-blue-500 h-full rounded-full" style="width:75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STAGE STRIP ── -->
+  <section class="py-10 border-y border-slate-100 bg-slate-50/60">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mb-6">Designed for every stage of growth</p>
+      <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10">
+        <span class="text-sm font-bold text-slate-300 tracking-widest uppercase">Pre-Seed</span>
+        <div class="w-1 h-1 rounded-full bg-slate-200 hidden md:block"></div>
+        <span class="text-sm font-bold text-slate-300 tracking-widest uppercase">Seed</span>
+        <div class="w-1 h-1 rounded-full bg-slate-200 hidden md:block"></div>
+        <span class="text-sm font-bold text-slate-300 tracking-widest uppercase">Series A</span>
+        <div class="w-1 h-1 rounded-full bg-slate-200 hidden md:block"></div>
+        <span class="text-sm font-bold text-slate-300 tracking-widest uppercase">Angel Investors</span>
+        <div class="w-1 h-1 rounded-full bg-slate-200 hidden md:block"></div>
+        <span class="text-sm font-bold text-slate-300 tracking-widest uppercase">Family Offices</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TWO AUDIENCES ── -->
+  <section class="py-24 px-6" id="platform">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3">Built for two sides of the table</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
+          One platform. Two superpowers.
+        </h2>
+        <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+          Founders get an AI co-pilot for their financials. Investors get an AI analyst embedded in every portfolio company.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- For founders -->
+        <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm card-hover">
+          <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">For Founders & Executives</div>
+          <h3 class="text-2xl font-black text-slate-900 mb-3">Your AI financial co-pilot</h3>
+          <p class="text-slate-500 leading-relaxed mb-6">
+            Continuum keeps you investor-ready at all times. Monitor burn, runway, ARR, and health score in real time. Model 36-month scenarios, track headcount, and manage your full financial narrative — without a CFO.
+          </p>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-3 text-sm text-slate-700">
+              <div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              Real-time financial dashboard & health score
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-700">
+              <div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              36-month financial engine with burn modeling
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-700">
+              <div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              Investor workspace, data room & updates
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-700">
+              <div class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              AI-driven signals & narrative control
+            </li>
+          </ul>
+          <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+            Explore the Founder Console →
+          </a>
+        </div>
+
+        <!-- For investors -->
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-8 shadow-sm card-hover" id="for-investors">
+          <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold tracking-widest text-blue-400 uppercase mb-2">For Angel Investors & Family Offices</div>
+          <h3 class="text-2xl font-black text-white mb-3">Your AI analyst, always on.</h3>
+          <p class="text-slate-400 leading-relaxed mb-6">
+            Every portfolio company on Continuum gives you a live feed of their financial health — without waiting for quarterly reports. Your AI analyst surfaces risks, flags anomalies, and benchmarks performance across your entire portfolio.
+          </p>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <div class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              Live portfolio health across all companies
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <div class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              AI analyst flags risks and opportunities
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <div class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              Automatic updates — no chasing founders
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <div class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              Benchmarking across portfolio stage & sector
+            </li>
+          </ul>
+          <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors">
+            Explore Investor Access →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section class="py-24 px-6 bg-slate-50/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3">Platform features</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
+          Everything to run your company.
+        </h2>
+        <p class="text-lg text-slate-500 max-w-xl mx-auto">
+          From financial modeling to media and narrative — the complete operating stack for ambitious founders.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Financial Engine -->
+        <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Financial Engine</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            36-month projections. Model burn, revenue, headcount, and runway with department-level precision.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">Burn Rate</span>
+            <span class="text-[10px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">ARR</span>
+            <span class="text-[10px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">Runway</span>
+          </div>
+        </div>
+
+        <!-- Health Score -->
+        <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Company Health Score</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Real-time diagnostics across runway, ARR growth, burn efficiency, and cash — with actionable recommendations.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md">Live Scoring</span>
+            <span class="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md">Alerts</span>
+          </div>
+        </div>
+
+        <!-- Investor Workspace -->
+        <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Investor Workspace</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Investor updates, data room, portal access, and messaging — all in one hub your investors can access anytime.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-semibold bg-purple-50 text-purple-700 px-2 py-0.5 rounded-md">Updates</span>
+            <span class="text-[10px] font-semibold bg-purple-50 text-purple-700 px-2 py-0.5 rounded-md">Data Room</span>
+          </div>
+        </div>
+
+        <!-- Media & Narrative -->
+        <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+            </svg>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Media & Narrative</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Control how your story is told. Craft, manage, and distribute your narrative to the right audiences.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-semibold bg-orange-50 text-orange-700 px-2 py-0.5 rounded-md">Narrative</span>
+            <span class="text-[10px] font-semibold bg-orange-50 text-orange-700 px-2 py-0.5 rounded-md">Signals</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section id="how-it-works" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3">Simple by design</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
+          Up and running in minutes.
+        </h2>
+        <p class="text-lg text-slate-500 max-w-xl mx-auto">
+          No complex setup. No consultants. Your data, your metrics, and clarity from day one.
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Connecting line -->
+        <div class="absolute top-6 left-1/2 -translate-x-1/2 w-2/3 h-px bg-slate-100 hidden md:block"></div>
+
+        <div class="grid md:grid-cols-3 gap-10 relative">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-base mx-auto mb-5 relative z-10 shadow-lg shadow-blue-500/30">1</div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Set up your company</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Enter your stage, team, funding history, and key financial inputs. Takes about 5 minutes.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-base mx-auto mb-5 relative z-10 shadow-lg shadow-blue-500/30">2</div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Get your health score</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Continuum instantly analyzes your financial position and surfaces what's critical, strong, and needs attention.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-base mx-auto mb-5 relative z-10 shadow-lg shadow-blue-500/30">3</div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Operate with clarity</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Use the financial engine, investor workspace, and AI signals to make better decisions — every day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ── -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 rounded-3xl p-12 text-white text-center shadow-2xl shadow-blue-500/30 relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M200 150C200 150 140 50 80 50C47 50 20 80 20 150C20 220 47 250 80 250C140 250 200 150 200 150Z" stroke="white" stroke-width="40" fill="none"/>
+            <path d="M200 150C200 150 260 250 320 250C353 250 380 220 380 150C380 80 353 50 320 50C260 50 200 150 200 150Z" stroke="white" stroke-width="40" fill="none"/>
+          </svg>
+        </div>
+        <div class="relative">
+          <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+            <svg width="26" height="16" viewBox="0 0 34 21" fill="none">
+              <path d="M17 10.5C17 10.5 12.5 2.5 6.5 2.5C3.4 2.5 1 5.5 1 10.5C1 15.5 3.4 18.5 6.5 18.5C12.5 18.5 17 10.5 17 10.5Z" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <path d="M17 10.5C17 10.5 21.5 18.5 27.5 18.5C30.6 18.5 33 15.5 33 10.5C33 5.5 30.6 2.5 27.5 2.5C21.5 2.5 17 10.5 17 10.5Z" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">
+            Ready to run your company with clarity?
+          </h2>
+          <p class="text-blue-100 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+            Join founders and investors who use Continuum to stay ahead of financials, stakeholders, and company health — all in one place.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://continuum.masterexp.io/" class="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors text-sm shadow-lg">
+              Get Early Access →
+            </a>
+            <a href="#" class="bg-blue-500/30 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-500/40 transition-colors border border-white/20 text-sm">
+              Schedule a Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="py-12 px-6 border-t border-slate-100">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <svg width="28" height="17" viewBox="0 0 34 21" fill="none">
+          <path d="M17 10.5C17 10.5 12.5 2.5 6.5 2.5C3.4 2.5 1 5.5 1 10.5C1 15.5 3.4 18.5 6.5 18.5C12.5 18.5 17 10.5 17 10.5Z" stroke="#1D4ED8" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+          <path d="M17 10.5C17 10.5 21.5 18.5 27.5 18.5C30.6 18.5 33 15.5 33 10.5C33 5.5 30.6 2.5 27.5 2.5C21.5 2.5 17 10.5 17 10.5Z" stroke="#1D4ED8" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="text-[12px] font-black tracking-[0.18em] text-slate-900 uppercase">Continuum</div>
+          <div class="text-[8px] font-semibold tracking-[0.22em] text-slate-400 uppercase">Founder Console</div>
+        </div>
+      </div>
+      <div class="flex gap-8 text-sm text-slate-400">
+        <a href="#" class="hover:text-slate-700 transition-colors">Platform</a>
+        <a href="#" class="hover:text-slate-700 transition-colors">Investors</a>
+        <a href="#" class="hover:text-slate-700 transition-colors">Privacy</a>
+        <a href="#" class="hover:text-slate-700 transition-colors">Terms</a>
+      </div>
+      <div class="text-xs text-slate-300">© 2025 Continuum. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
